@@ -120,21 +120,25 @@ function askQuestion() {
 
 function gradeQuiz(candidateAnswers) {
 
-  // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
+  //Question by Question Report // 
   console.log(`\n##########\n\nCandidate Name: ${candidateName}\n`);
   
   let numberOfCorrectAnswers = 0;
-
+  
   for (let i = 0; i < candidateAnswers.length; i++) {
+    
+    let gradedQuestionMessage = `${i + 1}) ${questions[i]}\nYour Answer: ${candidateAnswers[i]} \nCorrect Answer: ${correctAnswers[i]}\n`;
+
     if (candidateAnswers[i].toUpperCase() === correctAnswers[i].toUpperCase()) {
-      console.log(`${i + 1}) ${questions[i]}\nYour Answer: ${candidateAnswers[i]} \nCorrect Answer: ${correctAnswers[i]}\n`);
+      console.log(gradedQuestionMessage);
       numberOfCorrectAnswers++;
     } else {
-      console.log(`${i + 1}) ${questions[i]}\nYour Answer: ${candidateAnswers[i]} \nCorrect Answer: ${correctAnswers[i]}\n`);
+      console.log(gradedQuestionMessage);
     }
   }
 
-  let grade = (numberOfCorrectAnswers) / (questions.length) * 100;  //TODO 3.2 use this variable to calculate the candidates score.
+  //Grade Calculation & Overall Evaluation //
+  let grade = (numberOfCorrectAnswers) / (questions.length) * 100;  
   let status = "FAILED";
   let evaluationMessage = `>>> Overall Grade: ${grade}% (${numberOfCorrectAnswers} of ${questions.length} responses correct) <<<\n>>> Status: ${status} <<<`;
 
