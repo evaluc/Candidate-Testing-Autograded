@@ -63,7 +63,7 @@ function gradeQuiz(candidateAnswers) {
 
   return grade;
 }
-
+//Test Comment for GitHub Actions
 function runProgram() {
   askForName();
   //Greet candidate using their name //
